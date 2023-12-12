@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { MenuUnfoldOutlined, MenuFoldOutlined, UserOutlined, VideoCameraOutlined, UploadOutlined, BookOutlined, TrophyOutlined, RocketOutlined, BulbOutlined } from '@ant-design/icons';
-import { Layout, Menu, Button, theme, Divider } from 'antd';
+import { MenuUnfoldOutlined, PoweroffOutlined, MenuFoldOutlined, UserOutlined, VideoCameraOutlined, UploadOutlined, BookOutlined, TrophyOutlined, RocketOutlined, BulbOutlined } from '@ant-design/icons';
+import { Layout, Menu, Button, theme, Divider, Dropdown, Flex } from 'antd';
+import { MainContent } from './components';
 const { Header, Sider, Content } = Layout;
 
 const App = () => {
@@ -31,7 +32,7 @@ const App = () => {
             {
               key: '1',
               icon: <UserOutlined />,
-              label: 'Biography',
+              label: 'Basic Info',
             },
             {
               key: '2',
@@ -71,9 +72,12 @@ const App = () => {
           style={{
             padding: 0,
             background: colorBgContainer,
-            position: 'fixed',
-            width: '100%',
-            zIndex: 1
+            position: 'sticky',
+            // width: '100%',
+            // zIndex: 1
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
           }}
         >
           <Button
@@ -86,6 +90,14 @@ const App = () => {
               height: 64,
             }}
           />
+
+          <Button type="text" icon={<PoweroffOutlined style={{
+            color: 'red',
+            // marginRight: 20,
+            fontSize: 18,
+            // alignSelf: 'center',
+          }} />} />
+
         </Header>
         <Content
           style={{
@@ -94,11 +106,10 @@ const App = () => {
             minHeight: 280,
             background: colorBgContainer,
             borderRadius: borderRadiusLG,
-            marginTop: 74
+            marginTop: 14
           }}
         >
-          Content
-          {/* Your content here */}
+          <MainContent />
         </Content>
       </Layout>
     </Layout>
