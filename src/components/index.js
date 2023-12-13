@@ -1,5 +1,5 @@
-import MainContent from "./MainContent";
+import BasicInfo from "./BasicInfo";
 
 export {
-    MainContent
+    BasicInfo
 }

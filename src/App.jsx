@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { MenuUnfoldOutlined, PoweroffOutlined, MenuFoldOutlined, UserOutlined, VideoCameraOutlined, UploadOutlined, BookOutlined, TrophyOutlined, RocketOutlined, BulbOutlined } from '@ant-design/icons';
 import { Layout, Menu, Button, theme, Divider, Dropdown, Flex } from 'antd';
-import { MainContent } from './components';
+import { BasicInfo } from './components';
 const { Header, Sider, Content } = Layout;
 
 const App = () => {
@@ -109,7 +109,7 @@ const App = () => {
             marginTop: 14
           }}
         >
-          <MainContent />
+          <BasicInfo />
         </Content>
       </Layout>
     </Layout>
