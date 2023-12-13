@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { MenuUnfoldOutlined, PoweroffOutlined, MenuFoldOutlined, UserOutlined, VideoCameraOutlined, UploadOutlined, BookOutlined, TrophyOutlined, RocketOutlined, BulbOutlined } from '@ant-design/icons';
 import { Layout, Menu, Button, theme, Divider, Dropdown, Flex } from 'antd';
-import { BasicInfo } from './components';
+import { BasicInfo, Education } from './components';
 const { Header, Sider, Content } = Layout;
 
 const App = () => {
@@ -9,6 +9,8 @@ const App = () => {
   const {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
+
+  const educationRef = useRef(null);
 
   return (
     <Layout style={{ minHeight: '100vh' }}>
@@ -46,7 +48,14 @@ const App = () => {
             },
             {
               key: '4',
-              icon: <BookOutlined />,
+              icon: <BookOutlined
+                onClick={() =>
+                  window.scrollTo({
+                    top: educationRef.current.offsetTop,
+                    behavior: "smooth"
+                  })
+                }
+              />,
               label: 'Education',
             },
             {
@@ -106,10 +115,12 @@ const App = () => {
             minHeight: 280,
             background: colorBgContainer,
             borderRadius: borderRadiusLG,
-            marginTop: 14
+            marginTop: 14,
+            minWidth: 600
           }}
         >
           <BasicInfo />
+          <Education />
         </Content>
       </Layout>
     </Layout>
