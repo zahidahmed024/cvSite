@@ -1,22 +1,24 @@
 import React, { useState } from 'react'
-// import SortableList from './SortableList'
-import { Table, Space, Button, Card, Divider } from 'antd';
+import { Table, Space, Button, Card, Divider, Modal } from 'antd';
 import { EditOutlined, CloseCircleOutlined } from '@ant-design/icons';
 
 import Title from 'antd/es/typography/Title';
 import Paragraph from 'antd/es/typography/Paragraph';
-import CustomTable from './CustomTable';
-// const items = [
-//     "Gold",
-//     "Crimson",
-//     "Hotpink",
-//     "Blueviolet",
-//     "Cornflowerblue",
-//     "Skyblue",
-//     "Lightblue",
-//     "Aquamarine",
-//     "Burlywood"
-// ]
+import CustomTable from '../CustomTable';
+import TextInputWithLabel from '../TextInputWithLabel';
+import SelectInputWithLabel from '../SelectInputWithLabel';
+import SortableList from '../SortableList';
+const items = [
+    "Gold",
+    "Crimson",
+    "Hotpink",
+    "Blueviolet",
+    "Cornflowerblue",
+    "Skyblue",
+    "Lightblue",
+    "Aquamarine",
+    "Burlywood"
+]
 
 // export default function Skills() {
 //     return (
@@ -84,6 +86,15 @@ const headers = [
 const EducationList = ({ targetRef }) => {
 
     const [editId, setEditId] = useState(null)
+    const [modify, setModify] = useState(true)
+    const [isModalOpen, setIsModalOpen] = useState(false)
+    const [isPriorityModalOpen, setIsPriorityModalOpen] = useState(false)
+
+    const handleOk = () => { setIsModalOpen(false) }
+    const handleCancel = () => { setIsModalOpen(false) }
+
+    const onPressPriorityOk = () => { setIsPriorityModalOpen(false) }
+    const onPressPriorityCancel = () => { setIsPriorityModalOpen(false) }
 
     return <>
         <Card
@@ -95,19 +106,49 @@ const EducationList = ({ targetRef }) => {
             //     // <EllipsisOutlined key="ellipsis" />,
             // ]}
             headStyle={{ backgroundColor: '#f8f8f8' }}
-            extra={<EditOutlined />}
+            extra={<EditOutlined onClick={() => setModify(state => !state)} />}
             ref={targetRef}
         >
 
             <CustomTable
+                showActionButtons={modify}
                 headers={headers}
                 data={data}
-                onClickAdd={() => { }}
+                onClickAdd={() => { setIsModalOpen(true) }}
+                onClickPriority={() => { setIsPriorityModalOpen(true) }}
                 onClickEdit={(data) => { console.log(data) }}
                 onClickDelete={() => { }}
-                EditComponent={<Button type="primary" icon={<EditOutlined />} />}
             />
         </Card>
+
+        <Modal title="Add education degree" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
+            <TextInputWithLabel
+                label='Degree'
+                isEdit={true}
+            />
+            <SelectInputWithLabel
+                label="Department"
+                isEdit={true}
+                value={'Computer Science'}
+            />
+            <SelectInputWithLabel
+                label="Passing Year"
+                isEdit={true}
+                value={'1219'}
+            />
+            <SelectInputWithLabel
+                label="University/ Institute"
+                isEdit={true}
+                value={'AIUB'}
+            />
+        </Modal>
+
+        <Modal title="Change the priority of the list" open={isPriorityModalOpen} onOk={onPressPriorityOk} onCancel={onPressPriorityCancel}>
+            <Paragraph>Drag and drop the list to change the priority</Paragraph>
+            <SortableList
+                // items={items}
+            />
+        </Modal>
         <Divider />
     </>
 };

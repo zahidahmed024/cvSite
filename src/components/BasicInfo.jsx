@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Card, Avatar, Divider, Flex, Input, Typography, Select, } from 'antd';
 import { EditOutlined, EllipsisOutlined, SettingOutlined, CloseCircleOutlined, CheckCircleOutlined } from '@ant-design/icons';
 import TextInputWithLabel from './TextInputWithLabel';
+import SelectInputWithLabel from './SelectInputWithLabel';
 
 const { Meta } = Card;
 const { Title, Paragraph, Text, Link } = Typography
@@ -158,30 +159,30 @@ const MainContent = ({ targetRef }) => {
 //         </div>
 //     )
 // }
-const SelectInputWithLabel = ({ label = "", value = "", placeholder = 'type', textArea = false, onChangeText = undefined, isEdit = false }) => {
-    return (
-        <div style={{
-            marginBottom: 10
-        }}>
-            <Title level={5} style={{
-                marginTop: 3,
-                marginBottom: 3
-            }} >{label}</Title>
-            {!isEdit ? <Text>{value || 'Not provided'} </Text>
-                :
-                <Select
-                    defaultValue={value}
-                    // mode="tags"
-                    style={{
-                        width: '100%',
-                    }}
-                    onChange={() => { }}
-                    tokenSeparators={[',']}
-                    options={[{}, {}]}
-                />
-            }
-        </div>
-    )
-}
+// const SelectInputWithLabel = ({ label = "", value = "", placeholder = 'type', textArea = false, onChangeText = undefined, isEdit = false }) => {
+//     return (
+//         <div style={{
+//             marginBottom: 10
+//         }}>
+//             <Title level={5} style={{
+//                 marginTop: 3,
+//                 marginBottom: 3
+//             }} >{label}</Title>
+//             {!isEdit ? <Text>{value || 'Not provided'} </Text>
+//                 :
+//                 <Select
+//                     defaultValue={value}
+//                     // mode="tags"
+//                     style={{
+//                         width: '100%',
+//                     }}
+//                     onChange={() => { }}
+//                     tokenSeparators={[',']}
+//                     options={[{}, {}]}
+//                 />
+//             }
+//         </div>
+//     )
+// }
 
 export default MainContent;

@@ -1,5 +1,5 @@
 import BasicInfo from "./BasicInfo";
-import Education from "./Education";
+import Education from "./sections/Education";
 import Project from "./Project";
 import Training from "./Training";
 

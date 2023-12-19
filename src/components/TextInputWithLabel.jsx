@@ -16,16 +16,18 @@ const TextInputWithLabel = ({
         <div style={{
             marginBottom: 10
         }}>
-            <Title level={5} style={{
+            <Text style={{
                 marginTop: 3,
                 marginBottom: 3,
+                display: 'block',
+                fontWeight: '600',
                 ...titleStyle
-            }} >{label}</Title>
+            }} >{label}</Text>
             {
                 !isEdit ? <Text>{value || 'Not provided'} </Text> : textArea ? <TextArea
                     placeholder="textarea with clear icon"
                     allowClear
-                    onChange={() => { }}
+                    onChange={onChangeText}
                     rows={4}
                     value={value}
                 /> : <Input

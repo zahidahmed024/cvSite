@@ -38,19 +38,16 @@ export default function Project({ targetRef }) {
                                 }}>
                                     <TextInputWithLabel
                                         value='Rapidtransfer International'
-                                        titleStyle={{ fontSize: 14 }}
                                         label="Project Name"
                                         isEdit={false}
                                     />
                                     <TextInputWithLabel
                                         value={"React, Node.js, Express.js, MongoDB, Firebase, Material UI, Ant Design"}
                                         label={'Technology Used'}
-                                        titleStyle={{ fontSize: 14 }}
                                         isEdit={false}
                                     />
                                     <TextInputWithLabel
                                         value={"building pixel perfect smooth UI for both Android & Ios ."}
-                                        titleStyle={{ fontSize: 14 }}
                                         label="Responsibility"
                                         isEdit={false}
                                         textArea={true}
@@ -62,19 +59,16 @@ export default function Project({ targetRef }) {
                                     width: '49%',
                                 }}>
                                     <TextInputWithLabel
-                                        titleStyle={{ fontSize: 14 }}
                                         label="Project Link"
                                         isEdit={false}
                                         value={"https://play.google.com/store/apps/details?id=com.paytop.rapidtransfer"}
                                     />
                                     <TextInputWithLabel
-                                        titleStyle={{ fontSize: 14 }}
                                         label="Duration"
                                         isEdit={false}
                                         value={"June 2020 - December 2020"}
                                     />
                                     <TextInputWithLabel
-                                        titleStyle={{ fontSize: 14 }}
                                         label="Short Description"
                                         isEdit={false}
                                         textArea={true}
