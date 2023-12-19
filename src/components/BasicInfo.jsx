@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { Card, Avatar, Divider, Flex, Input, Typography, Select, } from 'antd';
 import { EditOutlined, EllipsisOutlined, SettingOutlined, CloseCircleOutlined, CheckCircleOutlined } from '@ant-design/icons';
+import TextInputWithLabel from './TextInputWithLabel';
 
 const { Meta } = Card;
 const { Title, Paragraph, Text, Link } = Typography
 const { TextArea } = Input;
 
-const MainContent = () => {
+const MainContent = ({ targetRef }) => {
 
     const [isEdit, setIsEdit] = useState(false)
 
@@ -64,6 +65,7 @@ const MainContent = () => {
                 // ]}
                 headStyle={{ backgroundColor: '#f8f8f8' }}
                 extra={<ActionButtons />}
+                ref={targetRef}
             >
                 {/* <Meta
                         avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />} // replace with user's avatar
@@ -85,7 +87,7 @@ const MainContent = () => {
                     }}>
                         <img
                             alt="example"
-                            src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png" // replace with user's image
+                            src="https://i.pinimg.com/1200x/8b/16/7a/8b167af653c2399dd93b952a48740620.jpg" // replace with user's image
                             style={{ height: "100%", width: "80%", }}
                         />
                     </div>
@@ -131,31 +133,31 @@ const MainContent = () => {
     );
 };
 
-const TextInputWithLabel = ({ label = "", value = "", placeholder = 'type', textArea = false, onChangeText = undefined, isEdit = false }) => {
-    return (
-        <div style={{
-            marginBottom: 10
-        }}>
-            <Title level={5} style={{
-                marginTop: 3,
-                marginBottom: 3
-            }} >{label}</Title>
-            {
-                !isEdit ? <Text>{value || 'Not provided'} </Text> : textArea ? <TextArea
-                    placeholder="textarea with clear icon"
-                    allowClear
-                    onChange={() => { }}
-                    rows={6}
-                    value={value}
-                /> : <Input
-                    placeholder={placeholder}
-                    onChange={onChangeText}
-                    value={value}
-                />
-            }
-        </div>
-    )
-}
+// const TextInputWithLabel = ({ label = "", value = "", placeholder = 'type', textArea = false, onChangeText = undefined, isEdit = false }) => {
+//     return (
+//         <div style={{
+//             marginBottom: 10
+//         }}>
+//             <Title level={5} style={{
+//                 marginTop: 3,
+//                 marginBottom: 3
+//             }} >{label}</Title>
+//             {
+//                 !isEdit ? <Text>{value || 'Not provided'} </Text> : textArea ? <TextArea
+//                     placeholder="textarea with clear icon"
+//                     allowClear
+//                     onChange={() => { }}
+//                     rows={6}
+//                     value={value}
+//                 /> : <Input
+//                     placeholder={placeholder}
+//                     onChange={onChangeText}
+//                     value={value}
+//                 />
+//             }
+//         </div>
+//     )
+// }
 const SelectInputWithLabel = ({ label = "", value = "", placeholder = 'type', textArea = false, onChangeText = undefined, isEdit = false }) => {
     return (
         <div style={{

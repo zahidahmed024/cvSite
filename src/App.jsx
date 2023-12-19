@@ -1,7 +1,10 @@
 import React, { useRef, useState } from 'react';
-import { MenuUnfoldOutlined, PoweroffOutlined, MenuFoldOutlined, UserOutlined, VideoCameraOutlined, UploadOutlined, BookOutlined, TrophyOutlined, RocketOutlined, BulbOutlined } from '@ant-design/icons';
+import { MenuUnfoldOutlined, PoweroffOutlined, MenuFoldOutlined, StarOutlined, UserOutlined, VideoCameraOutlined, UploadOutlined, BookOutlined, TrophyOutlined, RocketOutlined, BulbOutlined } from '@ant-design/icons';
 import { Layout, Menu, Button, theme, Divider, Dropdown, Flex } from 'antd';
-import { BasicInfo, Education } from './components';
+import { BasicInfo, Education, Project } from './components';
+import TrainingAndAchievement from './components/TrainingAndAchievement';
+import TechnicalSkills from './components/TechnicalSkills';
+import Experience from './components/Experience';
 const { Header, Sider, Content } = Layout;
 
 const App = () => {
@@ -10,7 +13,12 @@ const App = () => {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
 
+  const basicInfoRef = useRef(null);
   const educationRef = useRef(null);
+  const trainingAdnAchievementRef = useRef(null);
+  const technicalSkillsRef = useRef(null);
+  const experienceRef = useRef(null);
+  const projectRef = useRef(null);
 
   return (
     <Layout style={{ minHeight: '100vh' }}>
@@ -25,7 +33,6 @@ const App = () => {
 
         <Divider style={{ margin: 0, backgroundColor: '#2d445f' }} />
 
-
         <Menu
           theme="dark"
           mode="inline"
@@ -35,43 +42,49 @@ const App = () => {
               key: '1',
               icon: <UserOutlined />,
               label: 'Basic Info',
+              onClick: () => { basicInfoRef.current?.scrollIntoView({ behavior: 'smooth' }); }
             },
             {
               key: '2',
               icon: <BulbOutlined />,
               label: 'Technical Skill',
+              onClick: () => { technicalSkillsRef.current?.scrollIntoView({ behavior: 'smooth' }); }
             },
             {
               key: '3',
               icon: <RocketOutlined />,
               label: 'Experience',
+              onClick: () => { experienceRef.current?.scrollIntoView({ behavior: 'smooth' }); }
             },
             {
               key: '4',
-              icon: <BookOutlined
-                onClick={() =>
-                  window.scrollTo({
-                    top: educationRef.current.offsetTop,
-                    behavior: "smooth"
-                  })
-                }
-              />,
+              icon: <BookOutlined />,
               label: 'Education',
+              onClick: () => { educationRef.current?.scrollIntoView({ behavior: 'smooth' }); }
             },
             {
               key: '5',
               icon: <VideoCameraOutlined />,
               label: 'Training',
+              onClick: () => { trainingAdnAchievementRef.current?.scrollIntoView({ behavior: 'smooth' }); }
             },
             {
               key: '6',
               icon: <TrophyOutlined />,
               label: 'Achievement',
+              onClick: () => { trainingAdnAchievementRef.current?.scrollIntoView({ behavior: 'smooth' }); }
             },
             {
               key: '7',
               icon: <UploadOutlined />,
               label: 'Experience',
+              onClick: () => { experienceRef.current?.scrollIntoView({ behavior: 'smooth' }); }
+            },
+            {
+              key: '8',
+              icon: <StarOutlined />,
+              label: 'Project',
+              onClick: () => { projectRef.current?.scrollIntoView({ behavior: 'smooth' }); }
             },
           ]}
         />
@@ -119,8 +132,12 @@ const App = () => {
             minWidth: 600
           }}
         >
-          <BasicInfo />
-          <Education />
+          <BasicInfo targetRef={basicInfoRef} />
+          <Education targetRef={educationRef} />
+          <TrainingAndAchievement targetRef={trainingAdnAchievementRef} />
+          <TechnicalSkills targetRef={technicalSkillsRef} />
+          <Experience targetRef={experienceRef} />
+          <Project targetRef={projectRef} />
         </Content>
       </Layout>
     </Layout>

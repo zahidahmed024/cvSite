@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 // import SortableList from './SortableList'
-import { Table, Space, Button, Card } from 'antd';
+import { Table, Space, Button, Card, Divider } from 'antd';
 import { EditOutlined, CloseCircleOutlined } from '@ant-design/icons';
 
 import Title from 'antd/es/typography/Title';
@@ -81,31 +81,35 @@ const headers = [
     // },
 ];
 
-const EducationList = () => {
+const EducationList = ({ targetRef }) => {
 
     const [editId, setEditId] = useState(null)
 
-    return <Card
-        title="Education"
-        style={{ width: '100%', }}
-        // actions={[
-        //     <SettingOutlined key="setting" />,
-        //     <EditOutlined key="edit" />,
-        //     // <EllipsisOutlined key="ellipsis" />,
-        // ]}
-        headStyle={{ backgroundColor: '#f8f8f8' }}
-        extra={<EditOutlined />}
-    >
+    return <>
+        <Card
+            title="Education"
+            style={{ width: '100%', }}
+            // actions={[
+            //     <SettingOutlined key="setting" />,
+            //     <EditOutlined key="edit" />,
+            //     // <EllipsisOutlined key="ellipsis" />,
+            // ]}
+            headStyle={{ backgroundColor: '#f8f8f8' }}
+            extra={<EditOutlined />}
+            ref={targetRef}
+        >
 
-        <CustomTable
-            headers={headers}
-            data={data}
-            onClickAdd={() => { }}
-            onClickEdit={(data) => { console.log(data) }}
-            onClickDelete={() => { }}
-            EditComponent={<Button type="primary" icon={<EditOutlined />} />}
-        />
-    </Card>
+            <CustomTable
+                headers={headers}
+                data={data}
+                onClickAdd={() => { }}
+                onClickEdit={(data) => { console.log(data) }}
+                onClickDelete={() => { }}
+                EditComponent={<Button type="primary" icon={<EditOutlined />} />}
+            />
+        </Card>
+        <Divider />
+    </>
 };
 
 export default EducationList;
