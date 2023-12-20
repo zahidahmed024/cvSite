@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Button } from 'antd';
 import { EditOutlined, PlusOutlined, DeleteOutlined, VerticalAlignMiddleOutlined } from '@ant-design/icons';
-import { green, blue } from '@ant-design/colors'
+import { green, blue, yellow, red } from '@ant-design/colors'
 
 
 const CustomTable = ({ headers = [], data = [], showActionButtons = true, onClickAdd = undefined, onClickPriority = undefined, onClickEdit = undefined, onClickDelete = undefined }) => {
@@ -65,8 +65,8 @@ const CustomTable = ({ headers = [], data = [], showActionButtons = true, onClic
                                     textAlign: 'center',
                                     width: '100px',
                                 }}>
-                                    <Button type="primary" icon={<EditOutlined />} onClick={() => onClickEdit(row)} />
-                                    <Button type="primary" style={{ marginLeft: 5 }} danger icon={<DeleteOutlined />} onClick={() => onClickDelete(row)} />
+                                    <Button icon={<EditOutlined />} style={{ color: blue.primary }} onClick={() => onClickEdit(row)} />
+                                    <Button style={{ marginLeft: 5, color: red.primary }} icon={<DeleteOutlined />} onClick={() => onClickDelete(row)} />
                                 </td>
                             )
                         }

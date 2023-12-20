@@ -86,7 +86,7 @@ const headers = [
 const EducationList = ({ targetRef }) => {
 
     const [editId, setEditId] = useState(null)
-    const [modify, setModify] = useState(true)
+    const [modify, setModify] = useState(false)
     const [isModalOpen, setIsModalOpen] = useState(false)
     const [isPriorityModalOpen, setIsPriorityModalOpen] = useState(false)
 

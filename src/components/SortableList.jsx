@@ -53,7 +53,7 @@ const SortableList = ({ onConfirm = undefined }) => {
             name: 'John Brown',
             age: 32,
             address:
-                'Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text',
+                'Long text Long text Long text',
         },
         {
             key: '2',
@@ -66,6 +66,66 @@ const SortableList = ({ onConfirm = undefined }) => {
             name: 'Joe Black',
             age: 32,
             address: 'Sidney No. 1 Lake Park',
+        },
+        {
+            key: '4',
+            name: 'Joe Black',
+            age: 32,
+            address: 'Sidney No. 1 Lake Park',
+        },
+        {
+            key: '5',
+            name: 'Joe Black',
+            age: 32,
+            address: 'Sidney No. 1 Lake Park',
+        },
+        {
+            key: '6',
+            name: 'Joe Black',
+            age: 32,
+            address: 'Sidney No. 1 Lake Park',
+        },
+        {
+            key: '7',
+            name: 'Joe Black',
+            age: 32,
+            address: 'Sidney No. 1 Lake Park',
+        },
+        {
+            key: '8',
+            name: 'Joe Black',
+            age: 32,
+            address: 'Sidney No. 1 Lake Park',
+        },
+        {
+            key: '9',
+            name: 'Joe Black',
+            age: 32,
+            address: 'Sidney No. 1 Lake Park',
+        },
+        {
+            key: '10',
+            name: 'Joe Black',
+            age: 32,
+            address: 'Sidney No. 1 Lake Park',
+        },
+        {
+            key: '11',
+            name: 'Joe Black',
+            age: 32,
+            address: 'Sidney No. 1 Lake Park',
+        },
+        {
+            key: '12',
+            name: 'Joe Black',
+            age: 32,
+            address: 'Sidney No. 1 Lake Park',
+        },
+        {
+            key: '13',
+            name: 'Joe Black',
+            age: 32,
+            address: 'Sidney No. 1 Lake Park 2',
         },
     ]);
     const sensors = useSensors(
@@ -94,6 +154,9 @@ const SortableList = ({ onConfirm = undefined }) => {
                 strategy={verticalListSortingStrategy}
             >
                 <Table
+                    style={{
+                        height: 500, overflowY: 'scroll', overflowX: 'hidden', width: '100%'
+                    }}
                     components={{
                         body: {
                             row: Row,
@@ -102,6 +165,7 @@ const SortableList = ({ onConfirm = undefined }) => {
                     rowKey="key"
                     columns={columns}
                     dataSource={dataSource}
+                    pagination={false}
                 />
             </SortableContext>
         </DndContext>
