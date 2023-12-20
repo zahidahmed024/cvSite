@@ -1,5 +1,11 @@
-import MainContent from "./MainContent";
+import BasicInfo from "./BasicInfo";
+import Education from "./sections/Education";
+import Project from "./Project";
+import Training from "./Training";
 
 export {
-    MainContent
+    BasicInfo,
+    Education,
+    Training,
+    Project
 }
