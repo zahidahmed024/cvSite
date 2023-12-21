@@ -1,3 +1,4 @@
+import React, { forwardRef, useState, useImperativeHandle } from 'react';
 import { DndContext, PointerSensor, useSensor, useSensors } from '@dnd-kit/core';
 import { restrictToVerticalAxis } from '@dnd-kit/modifiers';
 import {
@@ -7,7 +8,6 @@ import {
     verticalListSortingStrategy,
 } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
-import React, { useState } from 'react';
 import { Table } from 'antd';
 const columns = [
     {
@@ -46,7 +46,7 @@ const Row = (props) => {
     };
     return <tr {...props} ref={setNodeRef} style={style} {...attributes} {...listeners} />;
 };
-const SortableList = ({ onConfirm = undefined }) => {
+const SortableList = forwardRef((props, ref) => {
     const [dataSource, setDataSource] = useState([
         {
             key: '1',
@@ -145,7 +145,12 @@ const SortableList = ({ onConfirm = undefined }) => {
             });
         }
     };
-    console.log('dataSource', dataSource)
+    const getUpdatedSortedData = () => {
+        return dataSource;
+    }
+    useImperativeHandle(ref, () => ({ getUpdatedSortedData }));
+    
+    // console.log('dataSource--->', dataSource)
     return (
         <DndContext sensors={sensors} modifiers={[restrictToVerticalAxis]} onDragEnd={onDragEnd}>
             <SortableContext
@@ -170,5 +175,5 @@ const SortableList = ({ onConfirm = undefined }) => {
             </SortableContext>
         </DndContext>
     );
-};
+});
 export default SortableList;

@@ -45,7 +45,7 @@ const Dashboard = () => {
     ];
 
     const onClick = ({ key }) => {
-        console.log('item dropdown', key)
+        // console.log('item dropdown', key)
     }
     return (
         <Layout style={{ minHeight: '100vh' }}>

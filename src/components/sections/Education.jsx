@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import { Table, Space, Button, Card, Divider, Modal } from 'antd';
 import { EditOutlined, CloseCircleOutlined } from '@ant-design/icons';
 
@@ -92,9 +92,17 @@ const EducationList = ({ targetRef }) => {
 
     const handleOk = () => { setIsModalOpen(false) }
     const handleCancel = () => { setIsModalOpen(false) }
+    
+    const sortedRef = useRef(null)
 
-    const onPressPriorityOk = () => { setIsPriorityModalOpen(false) }
+    const onPressPriorityOk = () => {
+        let sortedData = sortedRef.current.getUpdatedSortedData()
+        console.log('sortedData', sortedData)
+
+        setIsPriorityModalOpen(false)
+    }
     const onPressPriorityCancel = () => { setIsPriorityModalOpen(false) }
+
 
     return <>
         <Card
@@ -146,7 +154,8 @@ const EducationList = ({ targetRef }) => {
         <Modal title="Change the priority of the list" open={isPriorityModalOpen} onOk={onPressPriorityOk} onCancel={onPressPriorityCancel}>
             <Paragraph>Drag and drop the list to change the priority</Paragraph>
             <SortableList
-                // items={items}
+                ref={sortedRef}
+            // items={items}
             />
         </Modal>
         <Divider />
